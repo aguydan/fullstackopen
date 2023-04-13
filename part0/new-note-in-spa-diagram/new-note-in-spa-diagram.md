@@ -7,7 +7,7 @@ sequenceDiagram
     
     A ->> +B: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa;
 
-    Note left of B: The server responds with a JSON notifying that note is created;
+    Note left of B: The server responds with a JSON notifying that a note is created;
 
     B -->> -A: status code 201 — created;
 ```

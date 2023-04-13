@@ -1,1 +1,21 @@
-[![](https://mermaid.ink/img/pako:eNqtU01PwzAM_StWrqwdjFuRkDZAIATj0N0oB5O6a1ibhMTlQ9P-Oy6tOAwOHNZDpfjZz_Z7yVZpV5LKVKTXjqymS4PrgG1hQT6PgY02Hi3DHDDCc3DvkcLZb3jRwwK9_aDDf56cnx8tMri-WkHN7GM2nUbuSkMx1TGtqYnGbkxamSl9YOsbQu-n0ePIskiEIJlncLO6v4PS6a4lywdo0aKxAsf9PlwTXOQ5VKahw2ySvvzZ5BbfMNfBeP7da-mYIJh1zeAqkIKVFIziQ2TRPQJ9kO7Y2PU-W--oxFB4iXVNcUjIH5ZQBdd-nw7mVIncL-js_oqPWyjkclkWuwqVyeHbQSODY_ws1EQiUkwDNjuenSYnyUmhYDeBNE3h6f-CDEqMe2psmmfUG6g6q9k4O0gRyJYUhhQrZIMlaqJaCnIVSnkC2z5SKMlox6lKDJtCFXYnedixyz-tVhmHjiaq8_3043NRWYVNpN0XHfQRbg?type=png)](https://mermaid.live/edit#pako:eNqtU01PwzAM_StWrqwdjFuRkDZAIATj0N0oB5O6a1ibhMTlQ9P-Oy6tOAwOHNZDpfjZz_Z7yVZpV5LKVKTXjqymS4PrgG1hQT6PgY02Hi3DHDDCc3DvkcLZb3jRwwK9_aDDf56cnx8tMri-WkHN7GM2nUbuSkMx1TGtqYnGbkxamSl9YOsbQu-n0ePIskiEIJlncLO6v4PS6a4lywdo0aKxAsf9PlwTXOQ5VKahw2ySvvzZ5BbfMNfBeP7da-mYIJh1zeAqkIKVFIziQ2TRPQJ9kO7Y2PU-W--oxFB4iXVNcUjIH5ZQBdd-nw7mVIncL-js_oqPWyjkclkWuwqVyeHbQSODY_ws1EQiUkwDNjuenSYnyUmhYDeBNE3h6f-CDEqMe2psmmfUG6g6q9k4O0gRyJYUhhQrZIMlaqJaCnIVSnkC2z5SKMlox6lKDJtCFXYnedixyz-tVhmHjiaq8_3043NRWYVNpN0XHfQRbg)
+```mermaid
+sequenceDiagram
+    participant A as browser;
+    participant B as server;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/spa;
+    B -->> -A: HTML document;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/main.css;
+    B -->> -A: the CSS file;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/spa.js;
+    B -->> -A: the JavaScript file;
+    
+    Note right of A: The browser starts executing the JavaScript code that fetches the JSON from the server;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/data.json;
+    B -->> -A: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ];
+    
+    Note right of A: The browser executes the callback function that renders the notes;
+```

@@ -1,1 +1,29 @@
-[![](https://mermaid.ink/img/pako:eNqtVF9v0zAQ_yonv9KmW_cWpEktIBAaGyLliSB0dS6NaWIH-7KtqirxIfiEfBLOSRnbOiGQmoco9p1_f-4u3irtClKpCvStI6vppcGVxya3IE-Lno02LVqGGWCApXc3gfzzw_A8hiV0fRcd3peOCbxZVQyuhFkKi4p-w0i-LQKUzjdQICOwA5bwAAPG9qulKzbxbPz2UWXgBwyz8fn5s3kK76-yBVTMbUgnk8BdYSgkOiQV1cHYtUlKM6FbbNqasG0nlm6-WBEnWPeU1lT2QueD0L0SumWPmkOvocVN7bAAtAW0XagogOEoHS2g99iLjcjhDno-Fo1jMR8YuQsQaw5nJ1P4-f0HfPxwIb4K40k_bez1q__ytWd-wPtm8e4CCqe7huwxSBo0VsIHPLE-L7IMSlPTsWi-PsnyFq8x0960fEj295ljmdogLSXdsbGrx2h9b7hCwSXWsbt9QnZ1CaV3zb0BPYLBOPVi0NnHFj9tIZdf07L0K1epLPoWGhGOYZOrkezIYRpi05Pp2fh0fJor2I0gSRL4_O8FGSqx96mxrpeo11B2VrNxdiiFlx-V_JDyZ8DUSDXkpUmFXCDbuJMryWj2qgr061zldid52LHLNlarlH1HI9W1Uf3-slFpiXWg3S9S_HyA?type=png)](https://mermaid.live/edit#pako:eNqtVF9v0zAQ_yonv9KmW_cWpEktIBAaGyLliSB0dS6NaWIH-7KtqirxIfiEfBLOSRnbOiGQmoco9p1_f-4u3irtClKpCvStI6vppcGVxya3IE-Lno02LVqGGWCApXc3gfzzw_A8hiV0fRcd3peOCbxZVQyuhFkKi4p-w0i-LQKUzjdQICOwA5bwAAPG9qulKzbxbPz2UWXgBwyz8fn5s3kK76-yBVTMbUgnk8BdYSgkOiQV1cHYtUlKM6FbbNqasG0nlm6-WBEnWPeU1lT2QueD0L0SumWPmkOvocVN7bAAtAW0XagogOEoHS2g99iLjcjhDno-Fo1jMR8YuQsQaw5nJ1P4-f0HfPxwIb4K40k_bez1q__ytWd-wPtm8e4CCqe7huwxSBo0VsIHPLE-L7IMSlPTsWi-PsnyFq8x0960fEj295ljmdogLSXdsbGrx2h9b7hCwSXWsbt9QnZ1CaV3zb0BPYLBOPVi0NnHFj9tIZdf07L0K1epLPoWGhGOYZOrkezIYRpi05Pp2fh0fJor2I0gSRL4_O8FGSqx96mxrpeo11B2VrNxdiiFlx-V_JDyZ8DUSDXkpUmFXCDbuJMryWj2qgr061zldid52LHLNlarlH1HI9W1Uf3-slFpiXWg3S9S_HyA)
+```mermaid
+sequenceDiagram
+    participant A as browser;
+    participant B as server;
+    
+    Note right of A: The browser sends form data to the server in the body of the request;
+    
+    A ->> +B: POST https://studies.cs.helsinki.fi/exampleapp/new_note;
+
+    Note left of B: The server extracts the payload and pushes it to an array of notes;
+
+    B -->> -A: status code 302 — URL redirect;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/notes;
+    B -->> -A: HTML document;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/main.css;
+    B -->> -A: the CSS file;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/main.js;
+    B -->> -A: the JavaScript file;
+    
+    Note right of A: The browser starts executing the JavaScript code that fetches the JSON from the server;
+    
+    A ->> +B: GET https://studies.cs.helsinki.fi/exampleapp/data.json;
+    B -->> -A: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ];
+    
+    Note right of A: The browser executes the callback function that renders the notes;
+```
